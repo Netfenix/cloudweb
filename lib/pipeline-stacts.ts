@@ -16,7 +16,6 @@ export class PipelineStack extends Stack {
         commands: ['npm ci', 'npm run build', 'npx cdk synth'],
       }),
     });
-
     const cloudWebAwsStage = new CloudWebAwsStage(this, 'CloudWebAwsStage');
     pipeline.addStage(cloudWebAwsStage, {
       pre: [new pipelines.ManualApprovalStep('ManualApproval')],
